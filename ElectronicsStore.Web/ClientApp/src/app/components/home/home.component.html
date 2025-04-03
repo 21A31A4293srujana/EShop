@@ -1,0 +1,20 @@
+<div class="hero">
+  <h1>Welcome to Electronics Store</h1>
+  <p>Discover the latest electronic appliances at great prices</p>
+  <button mat-raised-button color="primary" routerLink="/products">Shop Now</button>
+</div>
+
+<div class="featured-products">
+  <h2>Featured Products</h2>
+  <div class="product-grid">
+    <mat-card *ngFor="let product of featuredProducts">
+      <img mat-card-image [src]="product.imageUrl" [alt]="product.name">
+      <mat-card-content>
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <p class="price">{{ product.price | currency }}</p>
+        <button mat-raised-button color="primary" (click)="addToCart(product)">Add to Cart</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

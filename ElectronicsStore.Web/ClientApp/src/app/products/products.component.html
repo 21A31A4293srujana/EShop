@@ -1,0 +1,115 @@
+<div class="products-container">
+  <!-- Search and Filter Section -->
+  <div class="filters-section">
+    <mat-form-field>
+      <mat-label>Search Products</mat-label>
+      <input matInput [(ngModel)]="searchText" placeholder="Search...">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="selectedCategory">
+        <mat-option value="">All Categories</mat-option>
+        <mat-option value="Television">Television</mat-option>
+        <mat-option value="Laptops">Laptops</mat-option>
+        <mat-option value="Smartphones">Smartphones</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Sort By</mat-label>
+      <mat-select [(ngModel)]="sortBy" (selectionChange)="sortProducts()">
+        <mat-option value="name">Name</mat-option>
+        <mat-option value="price">Price: Low to High</mat-option>
+        <mat-option value="-price">Price: High to Low</mat-option>
+        <mat-option value="rating">Rating</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- Admin Section - Add New Product -->
+  <mat-accordion class="admin-section" *ngIf="isAdmin">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>add_circle</mat-icon>
+          Add New Product
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <form #productForm="ngForm" class="add-product-form">
+        <mat-form-field appearance="fill">
+          <mat-label>Product Name</mat-label>
+          <input matInput [(ngModel)]="newProduct.name" name="name" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea matInput [(ngModel)]="newProduct.description" name="description" required></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Price (₹)</mat-label>
+          <input matInput type="number" [(ngModel)]="newProduct.price" name="price" required min="0">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Category</mat-label>
+          <mat-select [(ngModel)]="newProduct.category" name="category" required>
+            <mat-option value="Television">Television</mat-option>
+            <mat-option value="Laptops">Laptops</mat-option>
+            <mat-option value="Smartphones">Smartphones</mat-option>
+            <mat-option value="Audio">Audio</mat-option>
+            <mat-option value="Accessories">Accessories</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Stock</mat-label>
+          <input matInput type="number" [(ngModel)]="newProduct.stock" name="stock" required min="0">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Image URL</mat-label>
+          <input matInput [(ngModel)]="newProduct.imageUrl" name="imageUrl" required>
+        </mat-form-field>
+
+        <div class="form-actions">
+          <button mat-raised-button color="primary" 
+                  [disabled]="!productForm.form.valid"
+                  (click)="addProduct()">
+            Add Product
+          </button>
+        </div>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <!-- Products Grid -->
+  <div class="products-grid">
+    <mat-card *ngFor="let product of filteredProducts" class="product-card">
+      <img mat-card-image [src]="product.imageUrl" [alt]="product.name">
+      <mat-card-content>
+        <h2>{{product.name}}</h2>
+        <p class="price">₹{{product.price | number:'1.0-0'}}</p>
+        <p class="description">{{product.description}}</p>
+        <div class="product-info">
+          <span class="rating">
+            <mat-icon [style.color]="'gold'">star</mat-icon>
+            {{product.rating}}
+          </span>
+          <span class="stock" [class.low-stock]="product.stock < 5">
+            {{product.stock}} in stock
+          </span>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="addToCart(product)">
+          <mat-icon>shopping_cart</mat-icon>
+          Add to Cart
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
