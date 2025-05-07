@@ -1,0 +1,45 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footer-wrapper {
+  margin-top: auto;
+  background: #2c3e50;
+  color: white;
+  padding: 2rem 0;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+  }
+}
+
+// Animation for page transitions
+:host {
+  display: block;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,139 @@
+<main>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to SmartElectronics</h1>
+      <p class="subtitle">Discover the Future of Technology</p>
+      <p class="description">Experience cutting-edge electronics with premium quality and innovative features</p>
+      <div class="cta-buttons">
+        <a href="/shop" class="primary-btn">
+          <i class="pi pi-shopping-cart"></i>
+          Shop Now
+        </a>
+        <a href="/products" class="secondary-btn">
+          <i class="pi pi-search"></i>
+          Explore Products
+        </a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="number">1000+</span>
+        <span class="label">Products</span>
+      </div>
+      <div class="stat-item">
+        <span class="number">50+</span>
+        <span class="label">Brands</span>
+      </div>
+      <div class="stat-item">
+        <span class="number">24/7</span>
+        <span class="label">Support</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="featured-products">
+    <div class="section-header">
+      <h2>Featured Products</h2>
+      <p>Discover our handpicked selection of premium electronics</p>
+    </div>
+    <div class="carousel-wrapper">
+      <app-carousel [inputProducts]="featuredProducts"></app-carousel>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories">
+    <div class="section-header">
+      <h2>Shop by Category</h2>
+      <p>Find exactly what you're looking for</p>
+    </div>
+    <div class="category-grid">
+      <a href="/shop?category=Smartphones" class="category-card">
+        <div class="icon-wrapper">
+          <i class="pi pi-mobile"></i>
+        </div>
+        <h3>Smartphones</h3>
+        <p>Latest models from top brands</p>
+      </a>
+      <a href="/shop?category=Laptops" class="category-card">
+        <div class="icon-wrapper">
+          <i class="pi pi-desktop"></i>
+        </div>
+        <h3>Laptops</h3>
+        <p>Powerful machines for every need</p>
+      </a>
+      <a href="/shop?category=Accessories" class="category-card">
+        <div class="icon-wrapper">
+          <i class="pi pi-headphones"></i>
+        </div>
+        <h3>Accessories</h3>
+        <p>Enhance your experience</p>
+      </a>
+      <a href="/shop?category=Televisions" class="category-card">
+        <div class="icon-wrapper">
+          <i class="pi pi-tv"></i>
+        </div>
+        <h3>Televisions</h3>
+        <p>Immersive viewing experience</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="section-header">
+      <h2>Why Choose Us</h2>
+      <p>Experience the difference with our premium services</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="pi pi-truck"></i>
+        <h3>Free Shipping</h3>
+        <p>On orders over $50</p>
+      </div>
+      <div class="feature-card">
+        <i class="pi pi-shield"></i>
+        <h3>Secure Payment</h3>
+        <p>100% secure checkout</p>
+      </div>
+      <div class="feature-card">
+        <i class="pi pi-sync"></i>
+        <h3>Easy Returns</h3>
+        <p>30-day return policy</p>
+      </div>
+      <div class="feature-card">
+        <i class="pi pi-headset"></i>
+        <h3>24/7 Support</h3>
+        <p>Always here to help</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Manufacturing Section -->
+  <section class="manufacturing">
+    <div class="manufacturing-wrapper">
+      <app-manufacturing></app-manufacturing>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter">
+    <div class="newsletter-content">
+      <h2>Stay Updated</h2>
+      <p>Subscribe to our newsletter for the latest products and exclusive offers</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email" class="email-input">
+        <button class="subscribe-btn">Subscribe</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promo Banner -->
+  <section class="promo">
+    <div class="banner-wrapper">
+      <app-banner></app-banner>
+    </div>
+  </section>
+</main>

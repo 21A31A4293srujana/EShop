@@ -1,0 +1,59 @@
+<div class="product-settings">
+  <h2>{{ isEditMode ? 'Edit Product' : 'Create New Product' }}</h2>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" placeholder="Product name">
+    </div>
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" type="text" formControlName="title" placeholder="Product title">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" placeholder="Product description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input id="price" type="number" formControlName="price" placeholder="Product price">
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <input id="category" type="text" formControlName="category" placeholder="Product category">
+    </div>
+
+    <div class="form-group">
+      <label for="brand">Brand</label>
+      <input id="brand" type="text" formControlName="brand" placeholder="Product brand">
+    </div>
+
+    <div class="form-group">
+      <label for="size">Size</label>
+      <input id="size" type="text" formControlName="size" placeholder="Product size">
+    </div>
+
+    <div class="form-group">
+      <label for="color">Color</label>
+      <input id="color" type="text" formControlName="color" placeholder="Product color">
+    </div>
+
+    <div class="form-group">
+      <label for="imageUrl">Image URL</label>
+      <input id="imageUrl" type="text" formControlName="imageUrl" placeholder="Product image URL">
+    </div>
+
+    <div class="form-group">
+      <label for="stockQuantity">Stock Quantity</label>
+      <input id="stockQuantity" type="number" formControlName="stockQuantity" placeholder="Product stock quantity">
+    </div>
+
+    <div class="form-actions">
+      <button type="button" (click)="router.navigate(['/admin/dashboard'])">Cancel</button>
+      <button type="submit" [disabled]="!productForm.valid">Save</button>
+    </div>
+  </form>
+</div>

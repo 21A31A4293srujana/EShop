@@ -1,0 +1,21 @@
+<h2>Summary</h2>
+<section class="summary">
+  <div class="line-item">
+    <span>Subtotal</span>
+    <span>{{subTotal}} €</span>
+  </div>
+  <div class="line-item">
+    <span>Estimated handling and shipping fees</span>
+    <span>Free</span>
+  </div>
+  <div class="line-item">
+    <span>Applied discount</span>
+    <span>{{subTotal - total}} €</span>
+  </div>
+  <div class="total">
+    <span>Total</span>
+    <span>{{total}} €</span>
+  </div>
+</section>
+
+<button (click)="getTotalvalue()" class="payment-button">Payment</button>

@@ -1,0 +1,18 @@
+<p-toast position="top-right" key="confirm" (onClose)="onReject()" [baseZIndex]="5000">
+  <ng-template class="test" let-message pTemplate="message">
+    <section>
+      <section class="product-container">
+        <h3><i class="pi pi-check-circle"></i>Added to Cart</h3>
+        <div class="product-details">
+          <img src="{{ message.data.image }}" alt="Product image">
+          <div class="product-description">
+            <p>{{ message.data.name }}</p>
+            <p>{{ message.data.title }}</p>
+            <p class="product-price">₹{{ message.data.price }}</p>
+          </div>
+        </div>
+        <p-button class="navigate-cart" size="small" label="View Cart" (onClick)="navigateCartPage()" />
+      </section>
+    </section>
+  </ng-template>
+</p-toast>

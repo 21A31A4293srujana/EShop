@@ -1,0 +1,279 @@
+@import "../../../styles//variables.scss";
+.about-us-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $secondary-color;
+
+  .about-intro {
+    width: 100%;
+    max-width: 1300px;
+    padding: 2em 1em;
+    text-align: left;
+    h1 {
+      line-height: 1;
+      font-size: clamp(2em, 11vw, 11em);
+      font-family: "Antonio", sans-serif;
+      color: $text-color;
+    }
+
+    h2 {
+      font-size: 2em;
+      font-size: clamp(2em, 6vw, 6em);
+      color: $primary-color;
+    }
+  }
+
+  .about-values {
+    width: 100%;
+    max-width: 1300px;
+    height: 25em;
+    background-image: url("/public/athlete.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+    .about-values-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: end;
+      justify-content: left;
+      padding: 1em;
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px);
+      background-color: #6199611a;
+      position: absolute;
+      h3 {
+        color: $text-color;
+        font-size: clamp(2em, 4vw, 4em);
+      }
+      p {
+        margin-top: 0.4em;
+        font-size: clamp(0.5em, 2vw, 2em);
+      }
+    }
+  }
+
+  .about-steps {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3em 0;
+    background-color: white;
+    .about-steps-wrapper {
+      width: 100%;
+      max-width: 1300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 3em 0em;
+      gap: 1em;
+      position: relative;
+      .step {
+        flex: 1;
+        padding: 1em;
+        z-index: 1;
+        position: relative;
+        .step-number {
+          font-size: 6em;
+          font-weight: 600;
+          line-height: 1;
+          color: #61996143;
+          top: 0;
+          left: 1;
+          z-index: 0;
+          position: absolute;
+        }
+        h4 {
+          margin: 0.8em 0;
+          font-size: 1.5em;
+          color: #3a3a3a;
+          z-index: 4;
+          position: relative;
+        }
+
+        p {
+          font-size: 1em;
+          color: #242424;
+          z-index: 4;
+          position: relative;
+        }
+      }
+    }
+  }
+
+  .about-history-wrapper {
+    background-color: white;
+    width: 100%;
+    padding: 2em 0;
+    .about-history {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2em;
+      gap: 4em;
+      h4 {
+        margin: 0 0.2em;
+        font-size: 3em;
+        color: $primary-color;
+      }
+
+      p {
+        max-width: 800px;
+        margin: 0 0.5em;
+        font-size: 1.2em;
+        color: #666;
+      }
+
+      .btn-know-more {
+        padding: 0.8em 1.6em;
+        border: none;
+        border-radius: 4em;
+        font-size: 1.2em;
+        cursor: pointer;
+        font-family: "Roboto", sans-serif;
+        color: $text-color;
+        background-color: $secondary-color;
+        box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.22);
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .promo-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .promo-image-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      .promo-image {
+        width: 100%;
+        height: 300px;
+        position: relative;
+
+        h4 {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: end;
+          justify-content: center;
+          padding-bottom: 0.5em;
+          font-size: 2em;
+          color: $text-color;
+          position: absolute;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    // .promo-product {
+    //   display: flex;
+    //   flex-direction: column;
+    //   text-align: left;
+    //   padding: 2em 1em;
+    //   gap: 3em;
+    //   background-color: white;
+    //   h2 {
+    //     font-size: 1.2em;
+    //     color: $primary-color;
+    //   }
+    //   h3 {
+    //     color: $secondary-color;
+    //     font-size: clamp(2em, 4vw, 4em);
+    //   }
+
+    //   p {
+    //     font-size: 1em;
+    //     color: #131313;
+    //   }
+
+    //   .btn-shop-now {
+    //     max-width: 300px;
+    //     align-self: center;
+    //     padding: 0.8em 1.6em;
+    //     border: none;
+    //     border-radius: 4em;
+    //     font-size: 1.2em;
+    //     cursor: pointer;
+    //     font-family: "Roboto", sans-serif;
+    //     color: $text-color;
+    //     background-color: $secondary-color;
+    //     box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.22);
+    //     transition: all 0.3s ease-in-out;
+    //     &:hover {
+    //       transform: scale(1.1);
+    //     }
+    //   }
+    // }
+  }
+}
+@media screen and (min-width: 769px) {
+  .about-us-section {
+    .about-intro {
+      padding: 2em 0em;
+    }
+
+    .about-values {
+      height: 34em;
+    }
+
+    .about-steps {
+      .about-steps-wrapper {
+        display: flex;
+        flex-direction: row;
+        .step {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+      }
+    }
+    .about-history-wrapper {
+      .about-history {
+        text-align: center;
+      }
+    }
+
+    .promo-section {
+      flex-direction: column;
+
+      .promo-image-wrapper {
+        height: 660px;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        .promo-image {
+          flex: 1;
+          height: 100%;
+        }
+      }
+      .promo-product {
+        align-items: center;
+        gap: 4em;
+        padding: 4em 1em;
+        text-align: center;
+      }
+    }
+  }
+}

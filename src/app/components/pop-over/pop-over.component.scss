@@ -1,0 +1,13 @@
+@import "../../../styles/variables.scss";
+
+.button-profile {
+  background-color: transparent;
+  padding: 0.4em;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  .profile {
+    font-weight: 200;
+  }
+}

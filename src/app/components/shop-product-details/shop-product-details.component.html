@@ -1,0 +1,50 @@
+<section class="electronics-container">
+  <div class="electronics-image">
+    <img [src]="product.imageUrl" [alt]="'Image of ' + product.name" title="{{product.name}}" />
+  </div>
+
+  <section class="electronics-details">
+    <h1>{{product.name}}</h1>
+    <p class="category">{{product.category}}</p>
+    <p class="price">{{product.price | currency:'EUR'}} <span>+ Free shipping</span></p>
+
+    <form [formGroup]="productForm" (ngSubmit)="addProductToCart()">
+      <div class="electronics-specs">
+        <p>Color: {{product.color}}</p>
+        <p *ngIf="product.specifications?.warranty">Warranty: {{product.specifications.warranty}}</p>
+        <p *ngIf="product.specifications?.powerConsumption">Power Consumption: {{product.specifications.powerConsumption}}</p>
+        <p *ngIf="product.specifications?.dimensions">Dimensions: {{product.specifications.dimensions}}</p>
+        <p *ngIf="product.specifications?.weight">Weight: {{product.specifications.weight}}</p>
+      </div>
+      <div class="actions">
+        <button type="submit" class="add-to-cart button-base" [disabled]="productIsNotAvailable || !productForm.valid">
+          Add to Cart
+          <i class="pi pi-shopping-cart"></i>
+        </button>
+        <button type="button" class="add-to-favorites button-base" (click)="addProductToFavorites()">
+          Add to Favorites
+          <i class="pi pi-heart"></i>
+        </button>
+      </div>
+    </form>
+    <div class="tabs">
+      <div class="card flex justify-content-center">
+        <p-accordion [multiple]="true">
+          <p-accordionTab header="Description">
+            <p>{{product.description}}</p>
+          </p-accordionTab>
+          <p-accordionTab header="Details">
+            <p>Brand: {{product.brand}}</p>
+            <p>Stock: {{product.stockQuantity}}</p>
+            <div *ngIf="product.specifications?.features">
+              <p>Features:</p>
+              <ul>
+                <li *ngFor="let feature of product.specifications?.features || []">{{feature}}</li>
+              </ul>
+            </div>
+          </p-accordionTab>
+        </p-accordion>
+      </div>
+    </div>
+  </section>
+</section>

@@ -1,0 +1,87 @@
+@if(toggleForm){
+  <h1>My Account</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+    <h2>Log in</h2>
+    <div class="wrapper-input">
+      <label for="email">Email :</label>
+      <input type="text" id="email" formControlName="email" placeholder="Enter valid email">
+      @if (loginForm.get("email")?.invalid && loginForm.get("email")?.touched && !loginEmail?.hasError("email")) {
+      <p class="error">The email is required</p>
+      }
+      @if (loginEmail?.hasError("email") && loginEmail?.touched) {
+      <p class="error">Enter a valid email address</p>
+      }
+    </div>
+    <div class="wrapper-input">
+      <label for="password">Password :</label>
+      <input type="password" id="password" formControlName="password" placeholder="Enter your password" required="true">
+      @if (loginForm.get("password")?.invalid && loginForm.get("password")?.touched &&
+      !loginPassword?.hasError("minlength")) {
+      <p class="error">The password is required</p>
+      }
+      @if(loginPassword?.hasError('minlength') && loginPassword?.touched){
+      <p class="error">Minimum 8 characters</p>
+      }
+    </div>
+    <div class="forgot-password">
+      <a (click)="forgotPassword()">Forgot Password?</a>
+    </div>
+    <button class="button-base" type="submit" [disabled]="buttonInvalide">
+      @if (buttonInvalide) {
+      <i class="pi pi-spin pi-spinner" style="font-size: 1rem; font-weight: 400;"></i>
+      }
+      Login
+    </button>
+    <p class="signup-text">Don't have an account? <a (click)="switchForm()">Sign up</a></p>
+  </form>
+} @else {
+  <h1>My Account</h1>
+  <form [formGroup]="signUpForm" (ngSubmit)="signUpSubmit()">
+    <h2>Sign up</h2>
+    
+    <!-- Email -->
+    <div class="wrapper-input">
+      <label for="email">Email :</label>
+      <input type="text" id="email" formControlName="email" placeholder="Enter your email">
+      @if (signUpForm.get("email")?.invalid && signUpForm.get("email")?.touched && !signUpEmail?.hasError("email")) {
+      <p class="error">The email is required</p>
+      }
+      @if (signUpEmail?.hasError("email") && signUpEmail?.touched) {
+      <p class="error">Enter a valid email address</p>
+      }
+    </div>
+    
+    <!-- Password -->
+    <div class="wrapper-input">
+      <label for="password">Password :</label>
+      <input type="password" id="password" formControlName="password" placeholder="Enter your password">
+      @if (signUpForm.get("password")?.invalid && signUpForm.get("password")?.touched &&
+      !signUpPassword?.hasError("minlength") && !signUpPassword?.hasError("pattern")) {
+      <p class="error">The password is required</p>
+      }
+      @if(signUpPassword?.hasError('minlength') && signUpPassword?.touched){
+      <p class="error">Minimum 8 characters</p>
+      }
+      @if(signUpPassword?.hasError('pattern') && signUpPassword?.touched){
+      <p class="error">Password must contain at least one uppercase letter, one lowercase letter, one number and one special character</p>
+      }
+    </div>
+    
+    <!-- Name -->
+    <div class="wrapper-input">
+      <label for="name">Name :</label>
+      <input type="text" id="name" formControlName="name" placeholder="Enter your name">
+      @if (signUpName?.invalid && signUpName?.touched) {
+      <p class="error">Name is required (minimum 2 characters)</p>
+      }
+    </div>
+    
+    <button class="button-base" type="submit" [disabled]="buttonInvalide">
+      @if (buttonInvalide) {
+      <i class="pi pi-spin pi-spinner" style="font-size: 1rem; font-weight: 400;"></i>
+      }
+      Sign up
+    </button>
+    <p class="signup-text">Already have an account? <a (click)="switchForm()">Log in</a></p>
+  </form>
+}

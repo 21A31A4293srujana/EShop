@@ -1,0 +1,531 @@
+@import "../../../styles/variables.scss";
+.shoe-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1300px;
+  padding: 1em;
+  gap: 2em;
+
+  .shoe-image {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    img {
+      width: 100%;
+      height: 20em;
+      max-width: 30em;
+      object-fit: contain;
+    }
+  }
+
+  .shoe-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 2em;
+    }
+
+    .category {
+      padding: 0.4em 0;
+      font-size: 0.875em;
+      margin-bottom: 1.4em;
+      color: gray;
+    }
+
+    .price {
+      font-size: 1.5em;
+      margin-bottom: 1.4em;
+      span {
+        font-size: 0.875em;
+        color: gray;
+      }
+    }
+    .color-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      padding: 0.8em 0;
+
+      .color-available {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.1em;
+        gap: 0.2em;
+        border: 0.12em solid transparent;
+
+        div {
+          display: flex;
+          flex-wrap: wrap;
+          border-radius: 0.2em;
+          border: 0.12em solid transparent;
+        }
+        .borderOnClick {
+          border: 0.12em solid black;
+        }
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 3em;
+          height: 3em;
+          margin: 0.2em;
+          padding: 1em;
+          cursor: pointer;
+
+          border-radius: 0.2em;
+          border: 0.12em solid rgb(173, 173, 173);
+
+          &:hover {
+            opacity: 90%;
+          }
+        }
+
+        p {
+          font-size: 0.8em;
+        }
+      }
+    }
+
+    .shoe-size {
+      display: flex;
+      flex-direction: column;
+      margin: 2em 0;
+      gap: 1.4em;
+
+      p {
+        font-weight: 600;
+      }
+      .chose-size {
+        font-weight: 400;
+        color: #e64242;
+      }
+
+      ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(4em, 2.6em));
+        gap: 0.5em;
+        list-style-type: none;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 0.2em;
+          background-color: #eceff1;
+
+          button {
+            width: 100%;
+            height: 100%;
+            border: none;
+            padding: 1em;
+            font-size: 1em;
+            border-radius: 0.2em;
+            border: 0.12em solid transparent;
+            cursor: pointer;
+            position: relative;
+            &:hover {
+              border: 0.12em solid rgba(0, 0, 0, 0.913);
+            }
+          }
+          .fadeShoesizeButton {
+            color: lightgray;
+            background-color: rgba(247, 247, 247, 0.88);
+            position: relative;
+            &.fadeShoesizeButton:after {
+              content: "___";
+              top: 36%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              position: absolute;
+            }
+          }
+          .borderOnClick {
+            border: 0.12em solid rgba(0, 0, 0, 0.913);
+          }
+        }
+        font-size: 1em;
+      }
+    }
+
+    .quantity-selector {
+      display: flex;
+      gap: 0.5em;
+      .quantity-btn {
+        width: 2em;
+        height: 2em;
+        font-size: 1.25em;
+        border: none;
+        background-color: #eee;
+      }
+      .quantity-input {
+        width: 3em;
+        text-align: center;
+      }
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      button {
+        &.add-to-cart {
+          color: $text-color;
+          background-color: $primary-color;
+          i {
+            font-weight: 600;
+            color: $text-color;
+          }
+
+          &:hover {
+            background-color: darken($primary-color, 10%);
+          }
+        }
+        &:disabled {
+          background-color: lighten($primary-color, 20%);
+          cursor: default;
+          &:hover {
+            background-color: lighten($primary-color, 20%);
+          }
+        }
+
+        &.add-to-favorites {
+          border: 1px solid $primary-color;
+          color: $primary-color;
+          background-color: white;
+
+          i {
+            font-weight: 600;
+            color: red;
+          }
+
+          &:hover {
+            background-color: darken(white, 10%);
+          }
+        }
+      }
+    }
+    .tabs {
+      width: 100%;
+      max-width: 1300px;
+      padding: 2em 0;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .shoe-container {
+    margin-top: 2em;
+    flex-direction: row;
+    .shoe-image {
+      // align-self: flex-start;
+      flex: 1;
+      img {
+        max-width: 50em;
+        height: 30em;
+      }
+    }
+    .shoe-details {
+      .shoe-size {
+        ul {
+          li {
+            border: none;
+            background-color: rgb(241, 241, 241);
+          }
+        }
+      }
+
+      .actions {
+        button {
+          max-width: 20em;
+        }
+      }
+    }
+  }
+
+  .tabs {
+    display: flex;
+  }
+
+  .related-products {
+    background-color: transparent;
+    border-radius: 0.5em;
+
+    .related-items {
+      .related-item {
+        background-color: rgb(246, 246, 246);
+        img {
+          background-color: rgb(239, 239, 239);
+        }
+      }
+    }
+  }
+}
+
+.electronics-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1300px;
+  padding: 1em;
+  gap: 2em;
+
+  .electronics-image {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    img {
+      width: 100%;
+      height: 20em;
+      max-width: 30em;
+      object-fit: contain;
+    }
+  }
+
+  .electronics-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 2em;
+    }
+
+    .category {
+      padding: 0.4em 0;
+      font-size: 0.875em;
+      margin-bottom: 1.4em;
+      color: gray;
+    }
+
+    .price {
+      font-size: 1.5em;
+      margin-bottom: 1.4em;
+      span {
+        font-size: 0.875em;
+        color: gray;
+      }
+    }
+    .color-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      padding: 0.8em 0;
+
+      .color-available {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.1em;
+        gap: 0.2em;
+        border: 0.12em solid transparent;
+
+        div {
+          display: flex;
+          flex-wrap: wrap;
+          border-radius: 0.2em;
+          border: 0.12em solid transparent;
+        }
+        .borderOnClick {
+          border: 0.12em solid black;
+        }
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 3em;
+          height: 3em;
+          margin: 0.2em;
+          padding: 1em;
+          cursor: pointer;
+
+          border-radius: 0.2em;
+          border: 0.12em solid rgb(173, 173, 173);
+
+          &:hover {
+            opacity: 90%;
+          }
+        }
+
+        p {
+          font-size: 0.8em;
+        }
+      }
+    }
+
+    .electronics-size {
+      display: flex;
+      flex-direction: column;
+      margin: 2em 0;
+      gap: 1.4em;
+
+      p {
+        font-weight: 600;
+      }
+      .chose-size {
+        font-weight: 400;
+        color: #e64242;
+      }
+
+      ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(4em, 2.6em));
+        gap: 0.5em;
+        list-style-type: none;
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 0.2em;
+          background-color: #eceff1;
+
+          button {
+            width: 100%;
+            height: 100%;
+            border: none;
+            padding: 1em;
+            font-size: 1em;
+            border-radius: 0.2em;
+            border: 0.12em solid transparent;
+            cursor: pointer;
+            position: relative;
+            &:hover {
+              border: 0.12em solid rgba(0, 0, 0, 0.913);
+            }
+          }
+          .fadeElectronicsizeButton {
+            color: lightgray;
+            background-color: rgba(247, 247, 247, 0.88);
+            position: relative;
+            &.fadeElectronicsizeButton:after {
+              content: "___";
+              top: 36%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              position: absolute;
+            }
+          }
+          .borderOnClick {
+            border: 0.12em solid rgba(0, 0, 0, 0.913);
+          }
+        }
+        font-size: 1em;
+      }
+    }
+
+    .quantity-selector {
+      display: flex;
+      gap: 0.5em;
+      .quantity-btn {
+        width: 2em;
+        height: 2em;
+        font-size: 1.25em;
+        border: none;
+        background-color: #eee;
+      }
+      .quantity-input {
+        width: 3em;
+        text-align: center;
+      }
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      button {
+        &.add-to-cart {
+          color: $text-color;
+          background-color: $primary-color;
+          i {
+            font-weight: 600;
+            color: $text-color;
+          }
+
+          &:hover {
+            background-color: darken($primary-color, 10%);
+          }
+        }
+        &:disabled {
+          background-color: lighten($primary-color, 20%);
+          cursor: default;
+          &:hover {
+            background-color: lighten($primary-color, 20%);
+          }
+        }
+
+        &.add-to-favorites {
+          border: 1px solid $primary-color;
+          color: $primary-color;
+          background-color: white;
+
+          i {
+            font-weight: 600;
+            color: red;
+          }
+
+          &:hover {
+            background-color: darken(white, 10%);
+          }
+        }
+      }
+    }
+    .tabs {
+      width: 100%;
+      max-width: 1300px;
+      padding: 2em 0;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .electronics-container {
+    margin-top: 2em;
+    flex-direction: row;
+    .electronics-image {
+      flex: 1;
+      img {
+        max-width: 50em;
+        height: 30em;
+      }
+    }
+    .electronics-details {
+      .electronics-size {
+        ul {
+          li {
+            border: none;
+            background-color: rgb(241, 241, 241);
+          }
+        }
+      }
+
+      .actions {
+        button {
+          max-width: 20em;
+        }
+      }
+    }
+  }
+
+  .tabs {
+    display: flex;
+  }
+
+  .related-products {
+    background-color: transparent;
+    border-radius: 0.5em;
+
+    .related-items {
+      .related-item {
+        background-color: rgb(246, 246, 246);
+        img {
+          background-color: rgb(239, 239, 239);
+        }
+      }
+    }
+  }
+}

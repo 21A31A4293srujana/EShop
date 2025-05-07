@@ -1,0 +1,13 @@
+<section class="electronics-card" (click)="redirectToShopDetails(product.id)">
+  <div class="electronics-image">
+    <!-- Ensure the image has both alt and title attributes -->
+    <img [src]="product.imageUrl" [alt]="product.name || 'Image of ' + product.title" [title]="product.name || 'Image of ' + product.title" title="Product Image" />
+  </div>
+  <section class="electronics-info">
+    <h3 class="electronics-name">{{product.name}}</h3>
+    <p class="electronics-description">{{product.title}}</p>
+    <p class="electronics-description">{{product.category}}</p>
+    <p class="electronics-price">{{product.price}} €</p>
+    <button class="add-to-cart-btn" (click)="addToCart($event)">Add to Cart</button>
+  </section>
+</section>

@@ -1,0 +1,274 @@
+@import ".././../../../styles/variables.scss";
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1em 1em 6em 1em;
+  background-color: #f5f7fa;
+
+  h1 {
+    padding: 1em 0;
+    font-size: 2.4em;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    .first {
+      border-radius: 0.3em;
+      padding: 1em;
+
+      border: 1px solid #bdbdbd;
+      .product-label {
+        display: flex;
+        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 32em;
+        font-size: 1.2em;
+        align-items: end;
+        margin: 0.8em 0;
+      }
+      textarea {
+        padding: 0.6em;
+        resize: none;
+        width: 100%;
+        max-width: 36em;
+        height: 6em;
+        border: 1px solid #bababa;
+        border-radius: 0.4em;
+      }
+    }
+    input {
+      max-width: 30em;
+      width: 100%;
+      padding: 0.8em;
+      font-size: 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.4em;
+      background-color: #ffffff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid #bababa;
+
+      &::placeholder {
+        color: rgb(175, 175, 175);
+        outline: none;
+      }
+    }
+    button {
+      margin-top: 2em;
+      padding: 0.75rem;
+      font-size: 1rem;
+      color: #ffffff;
+      background-color: $primary-color;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+    .details-wrapper {
+      border-radius: 0.3em;
+      padding: 1em;
+      border: 1px solid #bdbdbd;
+      h2 {
+        font-size: 2em;
+        padding: 1em 0.3em;
+      }
+
+      .details {
+        border-radius: 0.4em;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4em;
+        width: fit-content;
+        label {
+          display: flex;
+          padding: 0.4em 0;
+          width: 100%;
+          max-width: 42em;
+          justify-content: center;
+          width: 100%;
+          gap: 1em;
+          textarea {
+            padding: 0.6em;
+            resize: none;
+            width: 100%;
+            max-width: 36em;
+            height: 6em;
+            border: 1px solid #bababa;
+            border-radius: 0.4em;
+          }
+          button {
+            margin: 0;
+          }
+        }
+      }
+    }
+    .variant-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      border-radius: 0.3em;
+      padding: 1em;
+      border: 1px solid #bdbdbd;
+      .variant {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        .variant-color {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          margin: 1em 0;
+          padding: 1em;
+          border: 1px solid lightgray;
+          border-radius: 0.4em;
+          background-color: rgb(218, 218, 218);
+          gap: 1em;
+          .color-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .color {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: end;
+              gap: 1em;
+              input {
+                width: 2.8em;
+                height: 1em;
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+          .size-stock-list {
+            display: flex;
+            flex-direction: column;
+            .size-stock {
+              display: flex;
+              flex-direction: row;
+              gap: 0.4em;
+              label {
+                margin-bottom: 0.4em;
+                display: flex;
+                align-items: end;
+                gap: 1em;
+                input {
+                  width: 4em;
+                }
+              }
+              button {
+                margin: 0;
+                height: 100%;
+              }
+            }
+          }
+        }
+      }
+      .add-new-color-button {
+        max-width: 12em;
+      }
+    }
+    .update-product {
+      max-width: 22em;
+      margin: 0 2em;
+    }
+  }
+}
+
+.product-settings {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin-bottom: 2rem;
+    color: #333;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      font-weight: 500;
+      color: #555;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+
+      &:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+      }
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      &[type="button"] {
+        background-color: #6c757d;
+        color: white;
+
+        &:hover {
+          background-color: #5a6268;
+        }
+      }
+
+      &[type="submit"] {
+        background-color: #007bff;
+        color: white;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+
+        &:disabled {
+          background-color: #ccc;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

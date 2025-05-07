@@ -1,0 +1,35 @@
+<main class="shoe-detail-page">
+  @if (listOfProducts) {
+    <app-shop-product-details [product]="listOfProducts"></app-shop-product-details>
+  }
+
+  <div class="related-products">
+    <h3>RELATED PRODUCTS</h3>
+    <div class="related-items">
+      <div class="related-item">
+        <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="iPhone 15 Pro" />
+        <p class="item-name">iPhone 15 Pro</p>
+        <p class="item-description">Latest iPhone with A17 Pro chip</p>
+        <p class="price">999.99 €</p>
+      </div>
+      <div class="related-item">
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2026&q=80" alt="MacBook Pro 16" />
+        <p class="item-name">MacBook Pro 16"</p>
+        <p class="item-description">Powerful laptop for professionals</p>
+        <p class="price">2499.99 €</p>
+      </div>
+      <div class="related-item">
+        <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="AirPods Pro" />
+        <p class="item-name">AirPods Pro</p>
+        <p class="item-description">Wireless earbuds with noise cancellation</p>
+        <p class="price">249.99 €</p>
+      </div>
+      <div class="related-item">
+        <img src="https://images.unsplash.com/photo-1706887041416-4c7b5c2c0e6c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Samsung Galaxy S24 Ultra" />
+        <p class="item-name">Samsung Galaxy S24 Ultra</p>
+        <p class="item-description">Ultimate Android smartphone</p>
+        <p class="price">1199.99 €</p>
+      </div>
+    </div>
+  </div>
+</main>

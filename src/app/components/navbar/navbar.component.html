@@ -1,0 +1,72 @@
+<section class="navbar-wrapper">
+  <nav class="navbar">
+    <p class="title">
+      <a routerLink="/home">SmartElectronics</a>
+    </p>
+    <div class="search-container">
+      <app-search-bar [search]="searchQuery" (searchChange)="onSearchChange($event)"></app-search-bar>
+    </div>
+    <div class="cart-wrapper">
+      <button class="cart-mobile">
+        <a routerLink="/cart">
+          <i class="pi pi-shopping-cart"></i>
+          <p class="cart-quantity">{{quantityOfProductsInCart}}</p>
+        </a>
+      </button>
+      @if (isUser || isAdmin) {
+      <app-pop-over></app-pop-over>
+      }
+      <section class="menu-mobile-wrapper">
+        <i class="pi pi-bars open-menu" (click)="openMenu()"></i>
+        <section class="menu-mobile" [class.open-close-menu]="openCloseMenu">
+          <i class="pi pi-times close-menu" (click)="openMenu()"></i>
+          <ul>
+            <li (click)="openMenu()"><a routerLink="/home" routerLinkActive="active" aria-current="page">HOME</a>
+            </li>
+            <li (click)="openMenu()"><a routerLink="/products" routerLinkActive="active" aria-current="page">PRODUCTS</a>
+            </li>
+            <li (click)="openMenu()"><a routerLink="/shop" routerLinkActive="active" aria-current="page">SHOP</a>
+            </li>
+            @if (!isUser) {
+            <li (click)="openMenu()">
+              <a routerLink="/myaccount" routerLinkActive="active" aria-current="page">MY ACCOUNT</a>
+            </li>
+            }
+            <li (click)="openMenu()"><a routerLink="/about" routerLinkActive="active" aria-current="page">ABOUT</a>
+            </li>
+            <li (click)="openMenu()"><a routerLink="/contact" routerLinkActive="active" aria-current="page">CONTACT</a>
+            </li>
+            @if (isAdmin) {
+            <li (click)="openMenu()"><a routerLink="/admin" routerLinkActive="active" aria-current="page">ADMIN</a>
+            </li>
+            }
+          </ul>
+        </section>
+      </section>
+    </div>
+    <section class="menu-desktop">
+      <ul>
+        <li><a routerLink="/home" routerLinkActive="active" aria-current="page">HOME</a></li>
+        <li><a routerLink="/products" routerLinkActive="active" aria-current="page">PRODUCTS</a></li>
+        <li><a routerLink="/shop" routerLinkActive="active" aria-current="page">SHOP</a></li>
+        <li><a routerLink="/about" routerLinkActive="active" aria-current="page">ABOUT</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" aria-current="page">CONTACT</a></li>
+        @if (!isUser) {
+        <li><a routerLink="/myaccount" routerLinkActive="active" aria-current="page">MY ACCOUNT</a></li>
+        }
+        @if (isAdmin) {
+        <li><a routerLink="/admin" routerLinkActive="active" aria-current="page">ADMIN</a></li>
+        }
+      </ul>
+      <button class="cart-desktop">
+        <a routerLink="/cart">
+          <i class="pi pi-shopping-cart"></i>
+          <p class="cart-quantity">{{quantityOfProductsInCart}}</p>
+        </a>
+      </button>
+      @if (isUser || isAdmin) {
+      <app-pop-over></app-pop-over>
+      }
+    </section>
+  </nav>
+</section>

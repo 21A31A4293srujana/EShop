@@ -1,0 +1,170 @@
+@import "../../../styles//variables.scss";
+
+.electronics-making-process {
+  width: 100%;
+  max-width: 1300px;
+  text-align: center;
+  padding: 4em 1em;
+
+  h2 {
+    font-size: clamp(2em, 4vw, 4em);
+    margin: 1em 0;
+    color: $primary-color;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 2em auto 2em;
+    color: $text-color;
+  }
+
+  .steps-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $text-color;
+
+    span {
+      width: 100%;
+      color: rgb(65, 65, 65);
+    }
+    .image-wrapper {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+      margin: 2em 0;
+      height: 450px;
+      background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(0,0,0,0.2), transparent);
+        z-index: 1;
+      }
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        &:hover {
+          transform: scale(1.1) rotate(1deg);
+        }
+      }
+
+      .image-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, 
+          rgba(0, 0, 0, 0.95) 0%,
+          rgba(0, 0, 0, 0.8) 50%,
+          transparent 100%);
+        color: white;
+        padding: 25px;
+        margin: 0;
+        font-size: 17px;
+        text-align: center;
+        backdrop-filter: blur(8px);
+        transform: translateY(0);
+        transition: all 0.4s ease;
+        z-index: 2;
+      }
+
+      &:hover {
+        .image-caption {
+          transform: translateY(-15px);
+          background: linear-gradient(to top, 
+            rgba(0, 0, 0, 0.98) 0%,
+            rgba(0, 0, 0, 0.9) 60%,
+            transparent 100%);
+        }
+      }
+    }
+    .steps-left-side {
+      flex: 2;
+      .step {
+        text-align: left;
+        padding: 1.5em 0;
+        border-radius: 8px;
+        margin-bottom: 2em;
+
+        .step-number {
+          font-size: 1em;
+          margin-bottom: 0.5em;
+          color: $text-color;
+        }
+
+        h3 {
+          font-size: 1.5em;
+          margin: 0.6em 0;
+          color: $primary-color;
+          font-family: "Roboto", sans-serif;
+        }
+
+        p {
+          font-size: 1em;
+        }
+      }
+    }
+    .steps-right-side {
+      flex: 2;
+      height: 100%;
+      width: 100%;
+      .step {
+        text-align: right;
+        padding: 1.5em 0;
+        border-radius: 8px;
+        margin-bottom: 2em;
+
+        .step-number {
+          font-size: 1em;
+          margin-bottom: 0.5em;
+          color: $text-color;
+        }
+
+        h3 {
+          font-size: 1.5em;
+          margin: 0.6em 0;
+          color: $primary-color;
+          font-family: "Roboto", sans-serif;
+        }
+
+        p {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .electronics-making-process {
+    padding: 6.4em 1em;
+    .steps-wrapper {
+      flex-direction: row;
+      .steps-left-side {
+        .step {
+          max-height: 170px;
+        }
+      }
+      .steps-right-side {
+        .step {
+          max-height: 170px;
+        }
+      }
+    }
+  }
+}

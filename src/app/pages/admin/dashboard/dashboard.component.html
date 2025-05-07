@@ -1,0 +1,62 @@
+<div class="card">
+  <h1>Admin Dashboard</h1>
+  <app-search-bar [(search)]="searchInput" (clickSearch)="searchProduct(searchInput)"></app-search-bar>
+  <section class="table-wrapper">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Brand</th>
+          <th>Stock Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (searchInputProduct === undefined) {
+        @for (item of products; track $index) {
+        <tr (click)="redirectToProductSettings(item.id)">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td><img [src]="item.imageUrl" alt="Product thumbnail" title="Product thumbnail" /></td>
+          <td>₹{{item.price}}</td>
+          <td>{{item.category}}</td>
+          <td>{{item.brand}}</td>
+          <td [ngClass]="getStockStatus(item.stockQuantity) | statusColor">
+            {{getStockStatus(item.stockQuantity)}}
+          </td>
+          <td>
+            <button class="edit-button" (click)="editProduct(item)">Edit</button>
+            <button class="delete-button" (click)="deleteProduct(item)">Delete</button>
+          </td>
+        </tr>
+        }
+        }@else if(searchInputProduct != undefined) {
+        @for (product of searchInputProduct ; track $index) {
+        <tr (click)="redirectToProductSettings(product.id)">
+          <td>{{product.id}}</td>
+          <td>{{product.name}}</td>
+          <td><img [src]="product.imageUrl" alt="Product thumbnail" title="Product thumbnail" /></td>
+          <td>₹{{product.price}}</td>
+          <td>{{product.category}}</td>
+          <td>{{product.brand}}</td>
+          <td [ngClass]="getStockStatus(product.stockQuantity) | statusColor">
+            {{getStockStatus(product.stockQuantity)}}
+          </td>
+          <td>
+            <button class="edit-button" (click)="editProduct(product)">Edit</button>
+            <button class="delete-button" (click)="deleteProduct(product)">Delete</button>
+          </td>
+        </tr>
+        }
+        }
+      </tbody>
+    </table>
+    @if (searchInputProduct != undefined && searchInputProduct.length === 0) {
+    <p class="not-found">No product found with this name</p>
+    }
+  </section>
+</div>

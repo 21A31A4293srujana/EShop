@@ -1,0 +1,42 @@
+<div class="search-container">
+  <div class="search-input-wrapper">
+    <input
+      type="text"
+      [(ngModel)]="search"
+      (input)="onInput()"
+      (keydown)="onKeyDown($event)"
+      placeholder="Search for products..."
+      class="search-input"
+    >
+    <button (click)="onSearch()" class="search-button">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+
+  <div class="suggestions" *ngIf="suggestions.length > 0">
+    <div 
+      class="suggestion-item" 
+      *ngFor="let suggestion of suggestions; let i = index"
+      (click)="selectSuggestion(suggestion)"
+      [class.selected]="i === selectedIndex"
+      (mouseenter)="selectedIndex = i"
+    >
+      <ng-container *ngIf="isHistorySuggestion(suggestion)">
+        <i class="fas fa-history"></i>
+        <span [innerHTML]="getHighlightedText(suggestion, [])"></span>
+      </ng-container>
+      <ng-container *ngIf="isProductSuggestion(suggestion)">
+        <img [src]="suggestion.item.imageUrl" [alt]="suggestion.item.name" class="suggestion-image">
+        <div class="suggestion-details">
+          <span class="suggestion-name" [innerHTML]="getHighlightedText(suggestion.item.name, suggestion.matches)"></span>
+          <span class="suggestion-price">{{ suggestion.item.price | currency }}</span>
+        </div>
+      </ng-container>
+    </div>
+    <div class="suggestions-footer" *ngIf="hasHistorySuggestions()">
+      <button (click)="clearHistory()" class="clear-history">
+        <i class="fas fa-trash"></i> Clear History
+      </button>
+    </div>
+  </div>
+</div>

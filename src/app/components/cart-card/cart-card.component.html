@@ -1,0 +1,25 @@
+<main class="cart-item">
+  <section class="item-details">
+    <div class="product-info">
+      <div class="image-wrapper">
+        <img [src]="product.imageUrl" alt="Cart product image" title="Cart product image">
+        <div class="quantity-section">
+          <i [ngClass]="product.quantity < 2 ? 'pi pi-trash' : 'pi pi-minus'" (click)="removeItem()"></i>
+          <p>{{product.quantity}}</p>
+          <i class="pi pi-plus" (click)="addItem()"></i>
+        </div>
+      </div>
+      <section class="info-wrapper">
+        <div class="price-info">
+          <p class="original-price">₹{{formatPrice(product.price * product.quantity)}}</p>
+        </div>
+        <div class="product-description">
+          <h2 class="product-name">{{product.name}}</h2>
+          <p>{{product.title}}</p>
+          <p>Color: {{product.color}}</p>
+          <p *ngIf="product.specifications.warranty">Warranty: {{product.specifications.warranty}}</p>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>

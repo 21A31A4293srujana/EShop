@@ -1,0 +1,60 @@
+<div class="product-details-container" *ngIf="!isLoading && product">
+  <div class="product-header">
+    <button class="back-button" (click)="navigateBack()">
+      <span class="back-icon">←</span> Back to Shop
+    </button>
+    <h1>{{product.name}}</h1>
+  </div>
+
+  <div class="product-content">
+    <div class="product-image">
+      <img [src]="product.imageUrl" [alt]="product.name">
+    </div>
+
+    <div class="product-info">
+      <div class="product-price">
+        <span class="price-label">Price:</span>
+        <span class="price-amount">₹{{formatPrice(product.price)}}</span>
+      </div>
+
+      <div class="product-description">
+        <h2>Description</h2>
+        <p>{{product.description}}</p>
+      </div>
+
+      <div class="product-specifications" *ngIf="hasSpecifications">
+        <h2>Specifications</h2>
+        <div class="specification-group" *ngFor="let spec of availableSpecifications | keyvalue">
+          <label>{{spec.key | titlecase}}:</label>
+          <select 
+            [value]="selectedSpecifications[spec.key]"
+            (change)="updateSpecification(spec.key, $event)">
+            <option *ngFor="let value of spec.value" [value]="value">
+              {{value}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="product-quantity">
+        <h2>Quantity</h2>
+        <div class="quantity-controls">
+          <button (click)="updateQuantity(-1)" [disabled]="quantity <= 1">-</button>
+          <span class="quantity">{{quantity}}</span>
+          <button (click)="updateQuantity(1)" [disabled]="quantity >= 10">+</button>
+        </div>
+      </div>
+
+      <div class="product-actions">
+        <button class="add-to-cart-btn" (click)="addToCart()">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loading-container" *ngIf="isLoading">
+  <div class="spinner"></div>
+  <p>Loading product details...</p>
+</div> 

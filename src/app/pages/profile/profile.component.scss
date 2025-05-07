@@ -1,0 +1,237 @@
+@import "../../../styles/variables.scss";
+.profile-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background-color: #fff;
+  min-height: 100vh;
+  .profile-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+    
+    p {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+  }
+  .profile-navigation {
+    .settings,
+    .favorites,
+    .orders {
+      margin: 1em 0;
+      padding: 1em;
+      position: relative;
+      background-color: rgb(232, 232, 232);
+      border-radius: 0.8em;
+      h2 {
+        display: flex;
+        position: sticky;
+        cursor: pointer;
+        z-index: 1;
+      }
+      h3 {
+        padding: 1em 0;
+      }
+      input {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        background-color: #ffffff;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        &:focus {
+          border-color: $primary-color;
+          box-shadow: 0 0 0 1px lighten($primary-color, 30%);
+          outline: none;
+        }
+      }
+      .toggle-tab-content {
+        width: 2.4em;
+        height: 2.4em;
+        top: 0;
+        right: 0;
+        margin: 1em;
+        border: none;
+        border-radius: 50%;
+        position: absolute;
+        cursor: pointer;
+        z-index: 0;
+      }
+    }
+
+    .settings-body,
+    .favorites-body,
+    .orders-body {
+      display: flex;
+      flex-direction: column;
+      padding: 1em 0;
+      label {
+        display: flex;
+        flex-direction: column;
+        max-width: 20rem;
+        margin: 1em 0;
+        color: #4a5568;
+      }
+      button {
+        max-width: 20rem;
+        background-color: rgb(245, 56, 56);
+      }
+      .delete-account {
+        padding: 0.4em;
+        margin: 1em 0;
+        border-radius: 0.4em;
+        background-color: lightgray;
+      }
+    }
+
+    .display-content {
+      display: none;
+    }
+  }
+}
+
+.profile-content {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+.profile-section {
+  h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    color: #7f8c8d;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.no-orders {
+  text-align: center;
+  padding: 2rem;
+  
+  p {
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+  }
+  
+  .shop-now-btn {
+    padding: 0.8rem 2rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+    
+    &:hover {
+      background: #2980b9;
+    }
+  }
+}
+
+.order-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.order-card {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .order-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    
+    .order-number {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    
+    .order-date {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+  }
+  
+  .order-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    
+    .order-items {
+      .item-count {
+        color: #34495e;
+      }
+    }
+    
+    .order-total {
+      .total-label {
+        color: #7f8c8d;
+        margin-right: 0.5rem;
+      }
+      
+      .total-amount {
+        font-weight: bold;
+        color: #2c3e50;
+      }
+    }
+  }
+  
+  .order-status {
+    .status-badge {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      background: #27ae60;
+      color: white;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+  }
+}

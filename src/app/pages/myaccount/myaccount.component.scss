@@ -1,0 +1,128 @@
+@import "../../../styles/variables.scss";
+:host {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: #f5f7fa;
+  height: 100vh;
+  padding: 4em 1em;
+  transition: transform 3s ease;
+  h1 {
+    padding-bottom: 1.8em;
+    width: 100%;
+    max-width: 16em;
+    font-family: "Roboto", sans-serif;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    h2 {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    label {
+      font-size: 0.9rem;
+      color: #4a5568;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+    gap: 1em;
+    .wrapper-input {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      
+      label {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+      
+      input {
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        
+        &:focus {
+          outline: none;
+          border-color: #007bff;
+          box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+      }
+      
+      .error {
+        color: #dc3545;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+      }
+    }
+
+    .forgot-password {
+      text-align: center;
+      margin-bottom: 1rem;
+      
+      a {
+        color: $primary-color;
+        text-decoration: none;
+        font-size: 0.9rem;
+        cursor: pointer;
+        
+        &:hover {
+          text-decoration: underline;
+          color: darken($primary-color, 10%);
+        }
+      }
+    }
+    
+    button {
+      width: 100%;
+      margin-top: 1.5rem;
+    }
+    .signup-text {
+      font-size: 0.9rem;
+      color: #4a5568;
+      margin-top: 1rem;
+      text-align: center;
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+          color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  h1 {
+    max-width: 32em;
+  }
+  form {
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+  }
+}
+
+h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}

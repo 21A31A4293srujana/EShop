@@ -1,0 +1,103 @@
+<div class="order-details-container" *ngIf="!isLoading && order">
+  <div class="order-header">
+    <button class="back-button" (click)="goBack()">
+      <span class="back-icon">←</span> Back to Orders
+    </button>
+    <h1>Order Details</h1>
+    <div class="order-number">Order #{{order.orderNumber}}</div>
+  </div>
+  
+  <div class="order-content">
+    <div class="order-section">
+      <h2>Order Summary</h2>
+      <div class="order-info">
+        <div class="info-row">
+          <span class="label">Order Date:</span>
+          <span class="value">{{formatDate(order.orderDate)}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Order Status:</span>
+          <span class="value status-badge">Completed</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Items:</span>
+          <span class="value">{{order.products.length}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Subtotal:</span>
+          <span class="value">₹{{formatPrice(order.subtotal)}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Shipping:</span>
+          <span class="value">₹{{formatPrice(order.total - order.subtotal)}}</span>
+        </div>
+        <div class="info-row total">
+          <span class="label">Total:</span>
+          <span class="value">₹{{formatPrice(order.total)}}</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="order-section">
+      <h2>Shipping Information</h2>
+      <div class="shipping-info">
+        <div class="info-row">
+          <span class="label">Name:</span>
+          <span class="value">{{order.shippingDetails.name}} {{order.shippingDetails.surname}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Address:</span>
+          <span class="value">{{order.shippingDetails.address}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">City:</span>
+          <span class="value">{{order.shippingDetails.city}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Country:</span>
+          <span class="value">{{order.shippingDetails.country}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Postal Code:</span>
+          <span class="value">{{order.shippingDetails.postalCode}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Email:</span>
+          <span class="value">{{order.shippingDetails.email}}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">Phone:</span>
+          <span class="value">{{order.shippingDetails.phone}}</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="order-section">
+      <h2>Order Items</h2>
+      <div class="order-items">
+        <div class="item-card" *ngFor="let product of order.products">
+          <div class="item-image">
+            <img [src]="product.imageUrl" [alt]="product.name">
+          </div>
+          <div class="item-details">
+            <h3 class="item-name">{{product.name}}</h3>
+            <p class="item-specs" *ngIf="product.specifications">
+              <span *ngIf="product.brand">Brand: {{product.brand}}</span>
+              <span *ngIf="product.color">Color: {{product.color}}</span>
+              <span *ngIf="product.specifications.warranty">Warranty: {{product.specifications.warranty}}</span>
+            </p>
+            <div class="item-price-qty">
+              <span class="item-price">₹{{formatPrice(product.price)}}</span>
+              <span class="item-quantity">Qty: {{product.quantity}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loading-container" *ngIf="isLoading">
+  <div class="spinner"></div>
+  <p>Loading order details...</p>
+</div> 

@@ -1,0 +1,39 @@
+<div class="order-confirmation" *ngIf="currentOrder">
+  <div class="confirmation-header">
+    <h1>Order Confirmed!</h1>
+    <p>Thank you for your purchase</p>
+  </div>
+  
+  <div class="confirmation-details">
+    <h2>Order Details</h2>
+    <div class="order-info">
+      <p><strong>Order Number:</strong> #{{currentOrder.orderNumber}}</p>
+      <p><strong>Date:</strong> {{currentOrder.orderDate | date:'medium'}}</p>
+      <p><strong>Total Amount:</strong> ${{currentOrder.total}}</p>
+    </div>
+
+    <div class="shipping-info">
+      <h3>Shipping Details</h3>
+      <p><strong>Name:</strong> {{currentOrder.shippingDetails.name}} {{currentOrder.shippingDetails.surname}}</p>
+      <p><strong>Address:</strong> {{currentOrder.shippingDetails.address}}</p>
+      <p><strong>City:</strong> {{currentOrder.shippingDetails.city}}</p>
+      <p><strong>Country:</strong> {{currentOrder.shippingDetails.country}}</p>
+      <p><strong>Postal Code:</strong> {{currentOrder.shippingDetails.postalCode}}</p>
+    </div>
+  </div>
+
+  <div class="next-steps">
+    <h3>What's Next?</h3>
+    <ul>
+      <li>You will receive an email confirmation shortly</li>
+      <li>We will process your order within 24 hours</li>
+      <li>You can track your order status in your account</li>
+    </ul>
+  </div>
+
+  <div class="actions">
+    <button class="continue-shopping" (click)="continueShopping()">
+      Continue Shopping
+    </button>
+  </div>
+</div> 

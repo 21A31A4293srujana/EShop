@@ -1,0 +1,25 @@
+<button class="button-profile" pButton type="button" (click)="toggle($event)" title="User Profile Menu">
+  <i class="pi pi-user profile" style="font-size: 1.4rem"></i>
+</button>
+<p-overlayPanel class="pop-over" #op>
+  <ul>
+    <li (click)="toggle($event)">
+      <a routerLink="/profile">Profile</a>
+    </li>
+    @if (isAdmin) {
+    <li (click)="toggle($event)">
+      <a routerLink="/admin">Admin</a>
+    </li>
+    }
+    <li (click)="toggle($event)">
+      <a>Orders</a>
+    </li>
+    <li (click)="toggle($event)">
+      <a>Favorites</a>
+    </li>
+    <li (click)="toggle($event)">
+      <a>Account Settings</a>
+    </li>
+  </ul>
+  <button type="button" (click)="logout()">Log out</button>
+</p-overlayPanel>

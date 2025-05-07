@@ -1,0 +1,13 @@
+<h1>My Cart</h1>
+<section class="products">
+  <div class="cart-products">
+    @if(products.length > 0){
+    @for (product of products; track $index) {
+    <app-cart-card [product]="product"></app-cart-card>
+    }
+    } @else {
+    <p>Your cart is empty.</p>
+    }
+  </div>
+  <app-recap></app-recap>
+</section>

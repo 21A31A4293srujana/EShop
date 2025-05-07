@@ -1,0 +1,27 @@
+<section>
+  <h2>REMARKABLE</h2>
+  <p>SPEED & COMFORT</p>
+  <div class="carousel-container">
+    <div class="carousel-wrapper">
+      <div class="carousel-items" [style.transform]="'translateX(' + (-currentIndex * (100 / itemsPerView)) + '%)'">
+        <div class="carousel-item" *ngFor="let product of products">
+          <div class="product-card">
+            <img [src]="product.imageUrl" [alt]="product.title" class="product-image">
+            <div class="product-info">
+              <h3>{{ product.title }}</h3>
+              <p class="price">₹{{ product.price }}</p>
+              <p class="description">{{ product.description }}</p>
+              <button class="view-details-btn" [routerLink]="['/product', product.id]">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="nav-btn prev" (click)="prev()" [disabled]="currentIndex === 0">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="nav-btn next" (click)="next()" [disabled]="currentIndex >= products.length - itemsPerView">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+</section>

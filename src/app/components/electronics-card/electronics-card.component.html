@@ -1,0 +1,18 @@
+<div class="electronics-card" (click)="redirectToShopDetails(product.id)">
+  <div class="electronics-image">
+    <img [src]="product.imageUrl" [alt]="product.name">
+  </div>
+  <div class="electronics-details">
+    <h3>{{ product.name }}</h3>
+    <p class="price">${{ product.price }}</p>
+    <p class="color" [style.color]="product.color | electronicsColor">
+      Color: {{ product.color }}
+    </p>
+    <div class="specifications" *ngIf="product.specifications">
+      <p *ngIf="product.specifications.powerConsumption">Power: {{product.specifications.powerConsumption}}</p>
+      <p *ngIf="product.specifications.dimensions">Dimensions: {{product.specifications.dimensions}}</p>
+      <p *ngIf="product.specifications.weight">Weight: {{product.specifications.weight}}</p>
+    </div>
+    <button class="add-to-cart" (click)="addToCart($event)">Add to Cart</button>
+  </div>
+</div> 

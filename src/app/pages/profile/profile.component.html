@@ -1,0 +1,60 @@
+@if (loading) {
+  <div class="loading">
+    Loading profile...
+  </div>
+} @else if (error) {
+  <div class="error-message">
+    {{ error }}
+  </div>
+} @else if (user) {
+  <div class="profile-container">
+    <div class="profile-header">
+      <h1>My Profile</h1>
+      <p>Manage your account and view your order history</p>
+    </div>
+
+    <div class="profile-content">
+      <div class="profile-section">
+        <h2>Order History</h2>
+        
+        <div class="loading-spinner" *ngIf="isLoading">
+          <div class="spinner"></div>
+          <p>Loading your orders...</p>
+        </div>
+        
+        <div class="no-orders" *ngIf="!isLoading && orderHistory.length === 0">
+          <p>You haven't placed any orders yet.</p>
+          <button class="shop-now-btn" (click)="navigateToShop()">Start Shopping</button>
+        </div>
+        
+        <div class="order-list" *ngIf="!isLoading && orderHistory.length > 0">
+          <div class="order-card" *ngFor="let order of orderHistory" (click)="viewOrderDetails(order)">
+            <div class="order-header">
+              <div class="order-number">Order #{{order.orderNumber}}</div>
+              <div class="order-date">{{formatDate(order.orderDate)}}</div>
+            </div>
+            
+            <div class="order-summary">
+              <div class="order-items">
+                <span class="item-count">{{order.products.length}} items</span>
+              </div>
+              <div class="order-total">
+                <span class="total-label">Total:</span>
+                <span class="total-amount">${{order.total}}</span>
+              </div>
+            </div>
+            
+            <div class="order-status">
+              <span class="status-badge">Completed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="loading">
+    Loading profile...
+  </div>
+}
+  

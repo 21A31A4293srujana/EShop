@@ -1,0 +1,245 @@
+@import "../../../styles/variables.scss";
+.navbar-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $secondary-color;
+  .navbar {
+    width: 100%;
+    max-width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6em 1em;
+
+    .title {
+      a {
+        font-size: 1.5em;
+        text-decoration: none;
+        color: $text-color;
+      }
+    }
+    .cart-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+
+      .cart-mobile {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        height: 3em;
+        background-color: transparent;
+        border: none;
+        position: relative;
+        padding: 0 1.2em;
+        a {
+          cursor: pointer;
+          display: flex;
+          gap: 0.2em;
+          text-decoration: none;
+          i {
+            align-self: center;
+            font-weight: 600;
+            color: $text-color;
+            font-size: 1.4em;
+          }
+          .cart-quantity {
+            font-size: 1em;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            border-radius: 50%;
+            padding: 0.2em 0.4em 0.1em 0.4em;
+            margin-bottom: 0.4em;
+            background-color: $primary-color;
+            color: $text-color;
+            font-family: "Roboto", sans-serif;
+            align-self: flex-start;
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+
+    .menu-mobile-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+
+      .open-menu {
+        display: flex;
+        justify-content: end;
+        width: 100%;
+        padding: 0.2em;
+        font-size: 1.5em;
+        color: $text-color;
+        cursor: pointer;
+      }
+
+      .menu-mobile {
+        display: none;
+
+        &.open-close-menu {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 4;
+          overscroll-behavior-block: none;
+          background-color: $secondary-color;
+          align-items: end;
+        }
+        .close-menu {
+          padding: 0.2em;
+          margin: 0.8em;
+          font-size: 1.5em;
+          color: $text-color;
+          cursor: pointer;
+        }
+        .close-menu:hover {
+          background-color: $primary-color;
+          border-radius: 0.2em;
+        }
+
+        ul {
+          display: flex;
+          list-style-type: none;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          background-color: $secondary-color;
+          padding: 1em 0;
+          li {
+            cursor: pointer;
+            width: 100%;
+            border-bottom: 1px solid black;
+            a {
+              display: flex;
+              width: 100%;
+              padding: 1em;
+              font-size: 1.4em;
+              font-weight: 600;
+              text-decoration: none;
+              color: $text-color;
+            }
+            a.active {
+              color: $primary-color;
+            }
+            a.active:hover {
+              color: $text-color;
+            }
+          }
+          li:hover {
+            background-color: $primary-color;
+          }
+
+          li:hover a {
+            color: $text-color;
+          }
+        }
+      }
+    }
+    .menu-desktop {
+      display: none;
+      align-items: center;
+      gap: 2em;
+      padding: 0.8em 0;
+
+      ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+
+        li {
+          padding: 0.5em 1em;
+          font-size: small;
+          font-size: 1em;
+          a {
+            text-decoration: none;
+            color: $text-color;
+          }
+          a:hover {
+            color: $primary-color;
+          }
+          a.active {
+            color: $primary-color;
+          }
+        }
+      }
+
+      .cart-desktop {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        height: 3em;
+        background-color: transparent;
+        border: none;
+        position: relative;
+        padding: 0 1.4em;
+        a {
+          cursor: pointer;
+          display: flex;
+          gap: 0.2em;
+          text-decoration: none;
+          i {
+            align-self: center;
+            font-weight: 600;
+            color: $text-color;
+            font-size: 1.4em;
+          }
+          .cart-quantity {
+            font-size: 1em;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            border-radius: 50%;
+            padding: 0.2em 0.4em 0.1em 0.4em;
+            margin-bottom: 0.4em;
+            background-color: $primary-color;
+            color: $text-color;
+            font-family: "Roboto", sans-serif;
+            align-self: flex-start;
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 920px) {
+  .navbar-wrapper {
+    .navbar {
+      padding: 0.6em 1em;
+
+      .cart-mobile {
+        display: none;
+      }
+
+      .menu-desktop {
+        display: flex;
+      }
+      .cart-wrapper {
+        display: none;
+      }
+    }
+  }
+}
+
+.search-container {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

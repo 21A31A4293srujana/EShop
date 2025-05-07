@@ -1,0 +1,16 @@
+<p-toast></p-toast>
+<main>
+  <div class="shop-header">
+    <h1>Our Products</h1>
+    <p class="product-count">{{filteredProducts.length}} products available</p>
+  </div>
+  <section class="product-container">
+    <div *ngIf="loading" class="loading-container">
+      <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+      <p>Loading products...</p>
+    </div>
+    <ng-container *ngIf="!loading">
+      <app-electronics-card *ngFor="let product of filteredProducts" [product]="product"></app-electronics-card>
+    </ng-container>
+  </section>
+</main>

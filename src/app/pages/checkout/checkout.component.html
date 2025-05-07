@@ -1,0 +1,127 @@
+<h1>
+  Payment
+</h1>
+<section class="checkout-wrap">
+  <form [formGroup]="addressForm" (ngSubmit)="addressSubmit()">
+    <h2>Delivery Information</h2>
+    <section>
+      <label for="name">First Name
+        <input class="input-base" type="text" formControlName="name" id="name" placeholder="Enter your first name">
+        @if(name?.touched && name?.invalid && !name?.hasError("minmength")){
+        <small class="error-message">Enter your first name</small>
+        }
+        @if(name?.touched && name?.invalid && name?.hasError("minlength")){
+        <small class="error-message">Input is too short</small>
+        }
+      </label>
+      <label for="surname">Last Name
+        <input class="input-base" type="text" formControlName="surname" id="surname" placeholder="Enter your last name">
+        @if(surname?.touched && surname?.invalid && !surname?.hasError("minlength")){
+        <small class="error-message">Enter your last name</small>
+        }
+        @if(surname?.touched && surname?.invalid && surname?.hasError("minlength")){
+        <small class="error-message">Input is too short</small>
+        }
+      </label>
+    </section>
+    <section>
+      <label for="adress">Address
+        <input class="input-base" type="text" formControlName="address" id="address"
+          placeholder="Enter your address">
+        @if(address?.touched && address?.invalid){
+        <small class="error-message">Enter an address.</small>
+        }
+      </label>
+    </section>
+    <section>
+      <label for="">Postal Code
+        <input class="input-base" type="text" formControlName="postalCode" id="postalCode"
+          placeholder="Enter your postal code">
+        @if(postalCode?.touched && postalCode?.invalid){
+        <small class="error-message">Enter your postal code.</small>
+        }
+      </label>
+      <label for="">City
+        <input class="input-base" type="text" formControlName="city" id="city" placeholder="Enter your city">
+        @if(city?.touched && city?.invalid){
+        <small class="error-message">Enter a city.</small>
+        }
+      </label>
+      <label for="">Country/Region
+        <input class="input-base" type="text" formControlName="country" id="country"
+          placeholder="Enter your country or region">
+        @if(country?.touched && country?.invalid){
+        <small class="error-message">Enter a country.</small>
+        }
+      </label>
+    </section>
+    <section>
+      <label for="">Email
+        <input class="input-base" type="text" formControlName="email" id="email" placeholder="Enter your email">
+        @if(email?.touched && email?.invalid && !email?.hasError("email")){
+        <small class="error-message">Enter an email address.</small>
+        }
+        @if(email?.touched && email?.invalid && email?.hasError("email")){
+        <small class="error-message">Enter a valid email address.</small>
+        }
+      </label>
+      <label for="phone">Phone Number
+        <input class="input-base" type="text" formControlName="phone" id="phone"
+          placeholder="Enter your phone number">
+        @if(phone?.touched && phone?.invalid && !phone?.hasError("pattern")){
+        <small class="error-message">Enter a phone number.</small>
+        }
+        @if(phone?.touched && phone?.invalid && phone?.hasError("pattern")){
+        <small class="error-message">Enter a valid phone number.</small>
+        }
+      </label>
+    </section>
+    <button class="button-base" type="submit">Save and Continue</button>
+  </form>
+  <aside>
+    <h2>
+      In Your Cart
+    </h2>
+    <section class="summary">
+      <div class="line-item">
+        <span>Subtotal</span>
+        <span>₹{{formatPrice(subTotal)}}</span>
+      </div>
+      <div class="line-item">
+        <span>Estimated Handling and Shipping Fees</span>
+        <span class="item-value">Free</span>
+      </div>
+      <div class="line-item">
+        <span>Applied Discount</span>
+        <span>₹{{formatPrice(subTotal - total)}}</span>
+      </div>
+      <div class="total">
+        <span>Total</span>
+        <span>₹{{formatPrice(total)}}</span>
+      </div>
+    </section>
+    @for (product of products; track $index) {
+    <section class="item-details">
+      <div class="product-info">
+        <div class="image-wrapper">
+          <img [src]="product.imageUrl" alt="Product image" title="Product image">
+        </div>
+        <section class="info-wrapper">
+          <div class="price-info">
+            <p class="original-price">₹{{formatPrice(product.price * product.quantity)}}</p>
+          </div>
+          <div class="product-description">
+            <p class="product-name">{{product.name}}</p>
+            <p>Brand: {{product.brand}}</p>
+            <p>Color: {{product.color}}</p>
+            <p>Quantity: {{product.quantity}}</p>
+            @if(product.specifications) {
+              <p>Warranty: {{product.specifications.warranty}}</p>
+            }
+          </div>
+        </section>
+      </div>
+    </section>
+    }
+  </aside>
+</section>
